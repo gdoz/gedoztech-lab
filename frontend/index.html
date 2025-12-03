@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en-US" data-theme="auto">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GedozTech Lab</title>
+
+    <meta
+      name="description"
+      content="GedozTech Lab is a multi-product, multi-platform technology ecosystem demonstrating modern software engineering, product thinking, cloud-first delivery, DevOps, security, and continuous learning — from Hello Worlds to real, deployable MVPs."
+    />
+    <meta
+      name="keywords"
+      content="software engineering, product development, cloud computing, DevOps, DevSecOps, architecture, multi-platform development, MVP, engineering lab, GitHub projects, technology portfolio, discovery, delivery, CI/CD, IaC"
+    />
+    <meta name="author" content="Gdoz Technology Solutions" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://gedoz.tech/" />
+
+    <!-- i18n (alternate) -->
+    <link rel="alternate" hreflang="en" href="https://gedoz.tech/?lang=en" />
+    <link rel="alternate" hreflang="pt" href="https://gedoz.tech/?lang=pt" />
+    <link rel="alternate" hreflang="x-default" href="https://gedoz.tech/" />
+
+    <!-- Browser color / PWA -->
+    <meta name="theme-color" content="#0d1117" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+
+    <!-- Favicons / icons -->
+    <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/icon-192.png"
+      sizes="192x192"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/icon-512.png"
+      sizes="512x512"
+    />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="GedozTech Lab" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="GedozTech Lab — Modern Software Engineering, Product Thinking & Multi-Platform Development"
+    />
+    <meta
+      property="og:description"
+      content="A transparent, public, real-world engineering lab building multi-product applications across web, mobile, IoT, cloud, DevOps, and security — combining product strategy with hands-on technical execution."
+    />
+    <meta property="og:url" content="https://gedoz.tech/" />
+    <meta
+      property="og:image"
+      content="https://gedoz.tech/assets/og-image-1200x630.png"
+    />
+    <meta property="og:site_name" content="GedozTech Lab" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="GedozTech Lab — Modern Engineering & Product Development"
+    />
+    <meta
+      name="twitter:description"
+      content="A multi-product, multi-platform engineering ecosystem showcasing real software delivery, cloud architectures, DevOps automation, security practices, and continuous learning."
+    />
+    <meta
+      name="twitter:image"
+      content="https://gedoz.tech/assets/og-image-1200x630.png"
+    />
+    <meta name="twitter:site" content="@gedoztech" />
+
+    <!-- Third-party CSS - GitHub Markdown, Highlight (GitHub Dark theme) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+    />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "GedozTech Lab",
+        "url": "https://gedoz.tech/",
+        "inLanguage": ["en-US", "pt-BR"],
+        "publisher": {
+          "@type": "Organization",
+          "name": "GedozTech Lab",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://gedoz.tech/assets/icon-512.png",
+            "width": 512,
+            "height": 512
+          }
+        }
+      }
+    </script>
+
+    <!-- Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <!-- Marked.js -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- DOMPurify (sanitization) -->
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+
+    <style>
+      /* ================= Theme (dark default, light override) ================= */
+      :root {
+        /* Dark (default) */
+        --bg: #0d1117;
+        --panel: #0e1116;
+        --text: #c9d1d9;
+        --muted: #8b949e;
+        --border: #30363d;
+        --link: #58a6ff;
+        --link-hover: #79c0ff;
+        --toc-width: 300px;
+        --radius: 12px;
+        --shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+
+        /* heights */
+        --header-h: 56px;
+        --anchor-offset: var(--header-h);
+
+        /* width */
+        --content-max: clamp(320px, 92vw, 1280px);
+        --page-max: 1800px;
+      }
+      /* Light theme vars */
+      [data-theme="light"] {
+        --bg: #f6f8fa;
+        --panel: #ffffff;
+        --text: #24292f;
+        --muted: #57606a;
+        --border: #d0d7de;
+        --link: #0969da;
+        --link-hover: #1a7efb;
+        --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      }
+      /* Auto follows prefers-color-scheme */
+      @media (prefers-color-scheme: light) {
+        html[data-theme="auto"] {
+          --bg: #f6f8fa;
+          --panel: #ffffff;
+          --text: #24292f;
+          --muted: #57606a;
+          --border: #d0d7de;
+          --link: #0969da;
+          --link-hover: #1a7efb;
+          --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+      }
+
+      /* ===== Reset/anti-overflow ===== */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        background: var(--bg);
+        color: var(--text);
+        scroll-behavior: smooth;
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+          Cantarell, "Helvetica Neue", Arial, sans-serif;
+      }
+      img,
+      video,
+      canvas,
+      svg {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* ===== Layout ===== */
+      .wrap {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, var(--content-max)) var(
+            --toc-width
+          );
+        gap: 24px;
+        max-width: var(--page-max);
+        margin: 0 auto 24px auto;
+        padding: 0 16px;
+        grid-auto-flow: row;
+      }
+      .gutter {
+        min-width: 0;
+      }
+
+      /* HEADER sticky (center column) */
+      .brand-wrap {
+        grid-column: 2 / 3;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        min-height: var(--header-h);
+        padding: 0 0 20px 0;
+        min-width: 0;
+      }
+      .brand {
+        grid-column: 2 / 3;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: var(--header-h);
+        padding: 10px 12px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        min-width: 0;
+      }
+      .brand-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+        text-decoration: none;
+      }
+      .brand-logo {
+        height: 32px;
+        width: auto;
+        display: block;
+        border-radius: 6px;
+        flex: 0 0 auto;
+      }
+      .brand-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .brand-actions {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex: 0 0 auto;
+      }
+      .btn {
+        appearance: none;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        color: var(--text);
+        border-radius: 10px;
+        padding: 6px 10px;
+        cursor: pointer;
+        font-size: 13px;
+        line-height: 1;
+        box-shadow: var(--shadow);
+      }
+      .btn:hover {
+        border-color: var(--link);
+        color: var(--link);
+      }
+      .btn.is-active {
+        border-color: var(--link);
+        color: var(--link);
+        font-weight: 600;
+      }
+
+      /* Markdown */
+      .markdown-body {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px;
+        box-shadow: var(--shadow);
+        color: var(--text);
+        max-width: 100%;
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+      .markdown-body a {
+        color: var(--link);
+      }
+      .markdown-body a:hover {
+        color: var(--link-hover);
+        text-decoration: underline;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        color: var(--text);
+        scroll-margin-top: calc(var(--anchor-offset) + 24px);
+      }
+      .markdown-body h2 {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 0.25rem;
+        margin-top: 2rem;
+      }
+
+      /* Code */
+      .markdown-body code {
+        background: color-mix(in srgb, var(--panel), #000 12%);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 0.15em 0.35em;
+        color: inherit;
+      }
+      .markdown-body pre code {
+        display: block;
+        padding: 0 !important;
+        border: none;
+        background: transparent;
+      }
+      .markdown-body pre {
+        background: color-mix(in srgb, var(--panel), #000 16%) !important;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 16px;
+        overflow: auto;
+      }
+
+      /* TOC */
+      .toc {
+        position: sticky;
+        top: calc(var(--anchor-offset) + 25px);
+        align-self: start;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 16px 14px;
+        box-shadow: var(--shadow);
+        max-height: calc(100vh - 32px);
+        overflow: auto;
+        grid-column: 3 / 4;
+        min-width: 0;
+      }
+      .toc h3 {
+        margin: 0 0 10px 0;
+        font-size: 14px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .toc ul {
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+        font-size: 14px;
+        line-height: 1.35;
+      }
+      .toc li {
+        margin: 6px 0;
+      }
+      .toc a {
+        display: block;
+        text-decoration: none;
+        color: var(--text);
+        border-left: 2px solid transparent;
+        padding-left: 8px;
+        transition: 120ms ease;
+        word-break: break-word;
+      }
+      .toc a:hover {
+        color: var(--link-hover);
+        border-left-color: var(--link);
+      }
+      .toc a.is-active {
+        color: var(--link);
+        border-left-color: var(--link);
+        font-weight: 600;
+      }
+      .toc .lvl-2 {
+        padding-left: 20px;
+        font-size: 0.95em;
+      }
+      .toc .lvl-2 a {
+        color: var(--muted);
+      }
+      .toc .lvl-2 a:hover {
+        color: var(--link-hover);
+      }
+      .toc .lvl-3 {
+        padding-left: 20px;
+        font-size: 0.9em;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .wrap {
+          grid-template-columns: 1fr;
+        }
+        .gutter,
+        .toc {
+          display: none;
+        }
+        .brand-wrap,
+        .brand,
+        #content {
+          grid-column: 1 / -1;
+        }
+        .brand {
+          margin-bottom: 10px;
+        }
+        .brand-name {
+          max-width: 45vw;
+        }
+      }
+
+      /* Larger widths */
+      @media (min-width: 1200px) {
+        :root {
+          --content-max: clamp(980px, 72vw, 1350px);
+        }
+      }
+      @media (min-width: 1600px) {
+        :root {
+          --content-max: clamp(1100px, 75vw, 1420px);
+          --toc-width: 340px;
+          --page-max: 2000px;
+        }
+      }
+
+      .footer {
+        color: var(--muted);
+        text-align: center;
+        margin: 18px 0 40px;
+        font-size: 13px;
+      }
+
+      #content {
+        grid-column: 2 / 3;
+      }
+      :target {
+        scroll-margin-top: calc(var(--anchor-offset) + 24px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="gutter"></div>
+
+      <!-- HEADER -->
+      <div class="brand-wrap" data-sticky-header>
+        <header class="brand" role="banner" aria-label="GedozTech Lab">
+          <a href="/" target="_self" class="brand-left">
+            <img src="assets/gdoz.png" alt="GedozTech Lab" class="brand-logo" />
+            <span class="brand-name">GedozTech Lab</span>
+          </a>
+          <div class="brand-actions">
+            <!-- i18n -->
+            <button class="btn" id="btn-lang-en" title="English (US)">
+              EN
+            </button>
+            <button class="btn" id="btn-lang-pt" title="Português (Brasil)">
+              PT
+            </button>
+            <!-- Theme -->
+            <button class="btn" id="btn-theme" title="Alternar tema">🌗</button>
+          </div>
+        </header>
+      </div>
+
+      <!-- CONTENT -->
+      <article id="content" class="markdown-body">Loading…</article>
+
+      <!-- TOC -->
+      <nav class="toc" id="toc">
+        <h3>Summary</h3>
+        <ul id="toc-list"></ul>
+      </nav>
+    </div>
+
+    <div class="footer">
+      © 2025 GDOZ Technology Solutions. All rights reserved.
+    </div>
+
+    <!-- ===== LGPD/GDPR: Consent banner + GA4 (multi-language) ===== -->
+    <style>
+      .cc-banner {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+        display: none;
+        gap: 12px;
+        align-items: start;
+        padding: 14px 16px;
+        background: #111827;
+        color: #e5e7eb;
+        border-top: 1px solid #374151;
+        box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.35);
+        font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      }
+      .cc-banner.show {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .cc-text {
+        flex: 1 1 320px;
+        margin-right: 12px;
+      }
+      .cc-actions {
+        display: flex;
+        gap: 8px;
+      }
+      .cc-btn {
+        cursor: pointer;
+        border-radius: 10px;
+        padding: 8px 12px;
+        border: 1px solid #374151;
+        background: #0e1116;
+        color: #e5e7eb;
+      }
+      .cc-btn:hover {
+        border-color: #60a5fa;
+        color: #93c5fd;
+      }
+      .cc-btn.primary {
+        border-color: #60a5fa;
+        color: #93c5fd;
+        font-weight: 600;
+      }
+      @media (max-width: 540px) {
+        .cc-actions {
+          width: 100%;
+          justify-content: flex-end;
+        }
+      }
+    </style>
+
+    <div id="cc-banner" class="cc-banner" role="dialog" aria-live="polite">
+      <div class="cc-text" id="cc-text"></div>
+      <div class="cc-actions">
+        <button class="cc-btn" id="cc-decline"></button>
+        <button class="cc-btn primary" id="cc-accept"></button>
+      </div>
+    </div>
+
+    <script>
+      const GA_MEASUREMENT_ID = "G-KF87GWTLED";
+
+      const CONSENT_KEY = "analytics-consent"; // 'granted' | 'denied'
+
+      function hasConsentGranted() {
+        return localStorage.getItem(CONSENT_KEY) === "granted";
+      }
+      function setConsent(val) {
+        localStorage.setItem(CONSENT_KEY, val);
+      }
+
+      // ---- banner i18n (EN/PT) ----
+      const ccTexts = {
+        en: {
+          html: `We use <strong>analytics cookies</strong> to understand how the site is used (pages visited, clicks, selected language and theme).
+            You can accept or decline. Data is aggregated and we do not collect personal information.
+            Read our <a href="/privacy.html" target="_blank" style="color:#93c5fd;">Privacy Policy</a>.`,
+          accept: "Accept",
+          decline: "Decline",
+        },
+        pt: {
+          html: `Usamos <strong>cookies de analytics</strong> para entender o uso do site (páginas visitadas, cliques e idioma/tema selecionados).
+            Você pode aceitar ou recusar. Os dados são agregados; não coletamos informações pessoais.
+            Leia nossa <a href="/privacy.html" target="_blank" style="color:#93c5fd;">Política de Privacidade</a>.`,
+          accept: "Aceitar",
+          decline: "Recusar",
+        },
+      };
+
+      function getCurrentLangForBanner() {
+        const langAttr = (document.documentElement.lang || "").toLowerCase();
+        if (langAttr.startsWith("pt")) return "pt";
+        return "en";
+      }
+
+      function updateConsentTexts() {
+        const lang = getCurrentLangForBanner();
+        const cfg = ccTexts[lang] || ccTexts.en;
+        const textEl = document.getElementById("cc-text");
+        const acceptBtn = document.getElementById("cc-accept");
+        const declineBtn = document.getElementById("cc-decline");
+        if (!textEl || !acceptBtn || !declineBtn) return;
+        textEl.innerHTML = cfg.html;
+        acceptBtn.textContent = cfg.accept;
+        declineBtn.textContent = cfg.decline;
+      }
+
+      // Update text when the lang attribute changes (setLang() already does this).
+      const langObserver = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+          if (m.type === "attributes" && m.attributeName === "lang") {
+            updateConsentTexts();
+          }
+        }
+      });
+      langObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang"],
+      });
+
+      // ---- GA4: only upload after consent ----
+      function loadGA(measurementId) {
+        if (!measurementId || window.gtag) return;
+        const s = document.createElement("script");
+        s.async = true;
+        s.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+        document.head.appendChild(s);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        window.gtag = gtag;
+
+        gtag("js", new Date());
+        gtag("config", measurementId, {
+          anonymize_ip: true,
+          cookie_flags: "SameSite=Lax;Secure",
+        });
+      }
+
+      function showBanner() {
+        document.getElementById("cc-banner")?.classList.add("show");
+      }
+      function hideBanner() {
+        document.getElementById("cc-banner")?.classList.remove("show");
+      }
+
+      (function initConsent() {
+        updateConsentTexts(); // apply initial language
+        const stored = localStorage.getItem(CONSENT_KEY);
+        if (stored === "granted") {
+          loadGA(GA_MEASUREMENT_ID);
+        } else if (stored === "denied") {
+          // does not load GA
+        } else {
+          showBanner();
+        }
+      })();
+
+      document.getElementById("cc-accept")?.addEventListener("click", () => {
+        setConsent("granted");
+        hideBanner();
+        loadGA(GA_MEASUREMENT_ID);
+      });
+      document.getElementById("cc-decline")?.addEventListener("click", () => {
+        setConsent("denied");
+        hideBanner();
+      });
+    </script>
+
+    <script>
+      /* ==============================
+       Utils: querystring + storage
+       ============================== */
+      function getQS(name) {
+        const m = new URLSearchParams(location.search).get(name);
+        return m ? m.toLowerCase() : null;
+      }
+      function setQS(key, val) {
+        const u = new URL(location.href);
+        if (val == null) u.searchParams.delete(key);
+        else u.searchParams.set(key, val);
+        history.replaceState(null, "", u.toString());
+      }
+
+      /* ==============================
+       Theme (auto / light / dark)
+       ============================== */
+      const THEME_KEY = "docs-theme"; // 'auto' | 'light' | 'dark'
+      const THEME_ALLOWED = ["auto", "light", "dark"];
+      function normalizeTheme(value) {
+        return THEME_ALLOWED.includes(value) ? value : "auto";
+      }
+      function applyTheme(theme) {
+        const t = normalizeTheme(theme);
+        document.documentElement.setAttribute("data-theme", t);
+        localStorage.setItem(THEME_KEY, t);
+      }
+      function nextTheme() {
+        const cur = normalizeTheme(localStorage.getItem(THEME_KEY));
+        const idx = (THEME_ALLOWED.indexOf(cur) + 1) % THEME_ALLOWED.length;
+        return THEME_ALLOWED[idx];
+      }
+      // Init theme
+      applyTheme(normalizeTheme(localStorage.getItem(THEME_KEY)));
+      document.getElementById("btn-theme").addEventListener("click", () => {
+        applyTheme(nextTheme());
+      });
+
+      /* ==============================
+       i18n (en / pt)
+       ============================== */
+      const LANG_KEY = "docs-lang"; // 'en' | 'pt'
+      function detectLang() {
+        const qs = getQS("lang");
+        if (qs === "pt" || qs === "en") return qs;
+        const stored = localStorage.getItem(LANG_KEY);
+        if (stored === "pt" || stored === "en") return stored;
+        return "en"; // default
+      }
+      function setLang(lang, { updateURL = true, rerender = true } = {}) {
+        localStorage.setItem(LANG_KEY, lang);
+        if (updateURL) setQS("lang", lang);
+        document.documentElement.lang = lang === "pt" ? "pt-BR" : "en-US";
+        document
+          .querySelector("#btn-lang-en")
+          .classList.toggle("is-active", lang === "en");
+        document
+          .querySelector("#btn-lang-pt")
+          .classList.toggle("is-active", lang === "pt");
+        // TOC heading
+        document.querySelector(".toc h3").textContent =
+          lang === "pt" ? "Sumário" : "Summary";
+        if (rerender) renderMarkdown(); // reload the MD in the language
+      }
+      document
+        .getElementById("btn-lang-en")
+        .addEventListener("click", () => setLang("en"));
+      document
+        .getElementById("btn-lang-pt")
+        .addEventListener("click", () => setLang("pt"));
+
+      /* ============ Top offset (current height) ============ */
+      function computeAnchorOffset() {
+        const stickyEls = document.querySelectorAll("[data-sticky-header]");
+        let total = 0;
+        stickyEls.forEach((el) => (total += el.getBoundingClientRect().height));
+        if (total === 0) {
+          const cssFallback = getComputedStyle(document.documentElement)
+            .getPropertyValue("--header-h")
+            .trim();
+          total = parseFloat(cssFallback) || 56;
+        }
+        document.documentElement.style.setProperty(
+          "--anchor-offset",
+          `${Math.round(total)}px`
+        );
+      }
+
+      /* ============ Smooth scrolling with offset ============ */
+      function smoothScrollToHash(hash) {
+        const id = hash.replace(/^#/, "");
+        const target = document.getElementById(id);
+        if (!target) return false;
+        const css = getComputedStyle(document.documentElement);
+        const off = parseFloat(css.getPropertyValue("--anchor-offset")) || 0;
+        const extra = 16;
+        const y =
+          target.getBoundingClientRect().top + window.scrollY - off - extra;
+        window.scrollTo({ top: y, behavior: "smooth" });
+        return true;
+      }
+
+      /* ============ Marked + TOC ============ */
+      marked.setOptions({
+        gfm: true,
+        breaks: false,
+        mangle: false,
+        headerIds: false,
+        smartypants: true,
+      });
+      function slugify(text) {
+        return text
+          .toString()
+          .trim()
+          .replace(/^[^\p{L}\p{N}]+/gu, "")
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/[^a-z0-9 -]/g, "")
+          .replace(/\s+/g, "-")
+          .replace(/-+/g, "-");
+      }
+      function buildTOC(container, headings) {
+        const list = document.getElementById("toc-list");
+        list.innerHTML = "";
+        const linkMap = new Map();
+
+        headings.forEach((h) => {
+          const level = parseInt(h.tagName.substring(1), 10);
+          if (level > 3) return;
+
+          if (!h.id) {
+            const base = slugify(h.textContent);
+            let id = base,
+              i = 2;
+            while (document.getElementById(id)) id = `${base}-${i++}`;
+            h.id = id;
+          }
+
+          const li = document.createElement("li");
+          li.className = `lvl-${level}`;
+
+          const a = document.createElement("a");
+          a.href = `#${h.id}`;
+          a.textContent = h.textContent;
+
+          li.appendChild(a);
+          list.appendChild(li);
+          linkMap.set(h.id, a);
+        });
+
+        // TOC click handler with smooth scrolling + hash + active
+        const tocRoot = document.getElementById("toc");
+        if (tocRoot) {
+          tocRoot.onclick = null;
+          tocRoot.addEventListener(
+            "click",
+            (e) => {
+              const a = e.target.closest('a[href^="#"]');
+              if (!a) return;
+
+              e.preventDefault();
+              const href = a.getAttribute("href");
+              const ok = smoothScrollToHash(href);
+
+              if (ok) {
+                history.pushState(null, "", href);
+                computeAnchorOffset();
+                updateTOCActiveFromHash();
+              }
+            },
+            { passive: false }
+          );
+        }
+
+        // After building the TOC, synchronize it with the current hash (if any).
+        if (location.hash) {
+          updateTOCActiveFromHash();
+        }
+      }
+
+      function updateTOCActiveFromHash() {
+        const hash = location.hash || "";
+        const id = hash.replace(/^#/, "");
+
+        const links = document.querySelectorAll(".toc a[href^='#']");
+        links.forEach((link) => {
+          const href = link.getAttribute("href") || "";
+          const linkId = href.replace(/^#/, "");
+          link.classList.toggle("is-active", linkId === id);
+        });
+      }
+
+      function applyHighlight(root) {
+        if (window.hljs)
+          root
+            .querySelectorAll("pre code")
+            .forEach((block) => hljs.highlightElement(block));
+        else setTimeout(() => applyHighlight(root), 50);
+      }
+
+      async function renderMarkdown() {
+        computeAnchorOffset();
+        const target = document.getElementById("content");
+        try {
+          const lang = detectLang();
+          // Adjust language in HTML and active buttons.
+          setLang(lang, { updateURL: true, rerender: false });
+          // Load the language file.
+          const file = lang === "pt" ? "content.pt.md" : "content.en.md";
+
+          const res = await fetch(file, { cache: "no-store" });
+          const md = await res.text();
+
+          const html = marked.parse(md);
+          const safe = window.DOMPurify
+            ? DOMPurify.sanitize(html, { USE_PROFILES: { html: true } })
+            : html;
+          target.innerHTML = safe;
+
+          applyHighlight(target);
+
+          const headings = target.querySelectorAll("h1,h2");
+          buildTOC(target, Array.from(headings));
+
+          // If it already comes with a hash, reposition it with an offset.
+          if (location.hash) {
+            smoothScrollToHash(location.hash);
+            updateTOCActiveFromHash();
+          }
+        } catch (e) {
+          target.innerHTML = `<p style="color:#ff6b6b">Failed to load Markdown content.</p>`;
+          console.error(e);
+        }
+      }
+
+      /* ===== Lifecycle ===== */
+      window.addEventListener("hashchange", () => {
+        if (location.hash) {
+          smoothScrollToHash(location.hash);
+          updateTOCActiveFromHash();
+        }
+      });
+      ["load", "resize", "orientationchange", "scroll"].forEach((evt) =>
+        window.addEventListener(evt, computeAnchorOffset, { passive: true })
+      );
+
+      // Init language and render
+      setLang(detectLang(), { updateURL: true, rerender: false });
+      renderMarkdown();
+    </script>
+
+    <script>
+      // === Send anonymous visit to the API ===
+      const VISIT_TOKEN =
+        "q27W2h0MDRdV4jqe29KOOUtPa0iesu4E7G3T4wYMDg5m1iH3tjjZmuegmfRwAYWP";
+      const API_URL = "/backend/api/visit.php";
+
+      function registerAnonymousVisit() {
+        // Avoid counting if it's localhost
+        if (
+          location.hostname === "localhost" ||
+          location.hostname === "127.0.0.1"
+        ) {
+          return;
+        }
+
+        const lang = localStorage.getItem("docs-lang") || "en";
+        const theme = localStorage.getItem("docs-theme") || "auto";
+
+        try {
+          fetch(API_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Visit-Token": VISIT_TOKEN,
+            },
+            body: JSON.stringify({
+              page: location.pathname || "/",
+              lang,
+              theme,
+              referrer: document.referrer || null,
+            }),
+            keepalive: true, // Help to send even if the user closes quickly
+          }).catch(function (err) {
+            // Silent so as not to break the UX if it fails
+            console.warn("Visit counter failed:", err);
+          });
+        } catch (e) {
+          console.warn("Visit counter exception:", e);
+        }
+      }
+
+      (function initVisitCounter() {
+        if (document.readyState === "loading") {
+          document.addEventListener(
+            "DOMContentLoaded",
+            registerAnonymousVisit,
+            {
+              once: true,
+            }
+          );
+        } else {
+          registerAnonymousVisit();
+        }
+      })();
+    </script>
+  </body>
+</html>
